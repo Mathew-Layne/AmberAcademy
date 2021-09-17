@@ -62,24 +62,36 @@
                             </li>
                         </ul>
                     </div>  
-                    @if(session()->missing('user_id'))
-                    
-                    <div class="header-btn hidden sm:block sm:absolute sm:right-0 sm:mr-16 lg:static lg:mr-0">
-                        <a class="text-white border bg-blue-600 border-blue-600 px-8 py-2 mx-1 rounded-full duration-300 hover:bg-white hover:text-blue-600"
-                            href="{{ url('/login') }}">Login</a>
-                    </div>
-                    @else
-                    
+                    @if(session()->get('user_type') == "User")
                     <div class="username flex">
                         <div class="pd w-8 m-1">
                             <img class="rounded-3xl h-full" src="{{ session()->get('pro_pic') }}" alt="Prifile Pic">
                         </div>
-                        <div class="name font-extrabold m-2">
+                        <div class="name m-1">
                             <a href="{{ url('/profile') }}">{{ session()->get('username') }}</a>
                     
                         </div>
                     </div>
                     
+                    @elseif(session()->get('user_type') == "Admin")
+                    
+                    <div class="username flex">
+                        <div class="pd w-8 m-1">
+                            <img class="rounded-3xl h-full" src="{{ session()->get('pro_pic') }}" alt="Prifile Pic">
+                        </div>
+                        <div class="name m-1">
+                            <a href="{{ url('/admin') }}">{{ session()->get('username') }}</a>
+                    
+                        </div>
+                    </div>
+                    
+                    @else
+                    
+                    <div class="nav_btn">
+                        <button class="mx-2 font-semibold" type="submit"> <a href="{{ url('register') }}">Register</a></button>
+                        <button class="font-semibold py-1 px-6 bg-blue-500 rounded-full text-white" type="submit"><a
+                                href="{{ url('login') }}">Login</a></button>
+                    </div>
                     @endif                  
                     
                 </nav>
@@ -102,7 +114,7 @@
                         <a href="{{ url('/register') }}" rel="nofollow" class="btn">Register Now</a>
                     </div>
                     <div class="text-center wow fadeInUp" data-wow-delay="1.6s">
-                        <img class="img-fluid mx-auto w-4/6" src="{{ url('images/amber5.jpg') }}" alt="">
+                        <img class="img-fluid mx-auto w-5/6" src="{{ url('images/amber1.png') }}" alt="">
                     </div>
                 </div>
             </div>

@@ -18,29 +18,45 @@
                 <li class="hover:text-blue-700"><a href="{{ url('/') }}">Home</a></li>
                 <li class="hover:text-blue-700"><a href="{{ url('/apply') }}">Apply</a></li>
                 <li class="hover:text-blue-700"><a href="{{ url('/media') }}">Media</a></li>
-                <li class="hover:text-blue-700"><a href="{{ url('/profile') }}">Profile</a></li>
-                <li class="hover:text-blue-700"><a href="{{ url('/contactus') }}">Contact Us</a></li>
+                @if(session()->get('user_type') == "User")
+                 <li class="hover:text-blue-700"><a href="{{ url('/profile') }}">Profile</a></li> 
+                 @elseif(session()->get('user_type') == "Admin")  
+                 <li class="hover:text-blue-700"><a href="{{ url('/admin') }}">Admin</a></li>
+                @endif         
+                <li class="hover:text-blue-700"><a href="/#feature">About Us</a></li>       
+                <li class="hover:text-blue-700"><a href="/#contact">Contact Us</a></li>
             </ul>
         </nav>
-        @if(session()->missing('user_id'))            
+        @if(session()->get('user_type') == "User")            
+            <div class="username flex">
+                <div class="pd w-8 m-1">
+                    <img class="rounded-3xl h-full" src="{{ session()->get('pro_pic') }}" alt="Prifile Pic">
+                </div>
+                <div class="name m-1">
+                    <a href="{{ url('/profile') }}">{{ session()->get('username') }}</a>
+            
+                </div>
+            </div>
         
+        @elseif(session()->get('user_type') == "Admin")
+
+            <div class="username flex">
+                <div class="pd w-8 m-1">
+                    <img class="rounded-3xl h-full" src="{{ session()->get('pro_pic') }}" alt="Prifile Pic">
+                </div>
+                <div class="name m-1">
+                    <a href="{{ url('/admin') }}">{{ session()->get('username') }}</a>
+            
+                </div>
+            </div>
+            
+        @else
+
         <div class="nav_btn">
             <button class="mx-2 font-semibold" type="submit"> <a href="{{ url('register') }}">Register</a></button>
             <button class="font-semibold py-1 px-6 bg-blue-500 rounded-full text-white" type="submit"><a
                     href="{{ url('login') }}">Login</a></button>
         </div>
-        @else
-
-        <div class="username flex">
-            <div class="pd w-8 m-1">
-                <img class="rounded-3xl h-full" src="{{ session()->get('pro_pic') }}" alt="Prifile Pic">
-            </div>
-            <div class="name m-1">
-                <a href="{{ url('/profile') }}">{{ session()->get('username') }}</a>
-                
-            </div>
-        </div>
-
         @endif
     </div>
     
