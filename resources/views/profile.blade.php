@@ -104,53 +104,99 @@
         <div class="w-9/12">
             @if(session()->get('profile') == 'myprofile')
 
-            <div class="p-10 text-gray-600 ">
-                <h1 class="text-3xl font-bold mb-6">Personal Information</h1>
-                <div class="content">
-                    <table class=" text-xl">
-                        <tr>
-                            <td class="font-bold pr-20">First Name:</td>
-                            <td>{{ $profile->first_name }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold pr-20">Last Name:</td>
-                            <td>{{ $profile->last_name }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold pr-20">Username:</td>
-                            <td>{{ $profile->username }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold pr-20">Email:</td>
-                            <td>{{ $profile->email }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold pr-20">Date of Birth:</td>
-                            <td>{{ $profile->dob }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold pr-20">Phone Number:</td>
-                            <td>{{ $profile->phone_number}}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold pr-20">Address:</td>
-                            <td>{{ $profile->address }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold pr-20">City:</td>
-                            <td>{{ $profile->city }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold pr-20">Parish:</td>
-                            <td>{{ $profile->parish }}</td>
-                        </tr>
-                    </table>
-                    <button class="mt-5 ">
+            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        Applicant Information
+                    </h3>
+                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                        Personal details.
+                    </p>
+                </div>
+                <div class="border-t border-gray-200">
+                    <dl>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                First Name
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->first_name }}
+                            </dd>
+                        </div>
+                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Last Name
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->last_name }}
+                            </dd>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Username
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->username }}
+                            </dd>
+                        </div>
+                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Email Address
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->email }}
+                            </dd>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Date of birth
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->dob }}
+                            </dd>
+                        </div>
+                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Phone Number
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->phone_number }}
+                            </dd>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Address
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->address }}
+                            </dd>
+                        </div>
+                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                City
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->city }}
+                            </dd>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Parish
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{ $profile->parish }}
+                            </dd>
+                        </div>                                                
+                    </dl>
+
+                    <button class="m-5">
                         <a class="px-8 py-1 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
-                            href="{{ url('editprofile') }}">Edit</a>
+                            href="{{ url('editprofile') }}">Edit Profile</a>
                     </button>
+
                 </div>
             </div>
+            
             @elseif(session()->get('profile') == 'editprofile')
 
             <div class="leading-loose mt-2">
@@ -384,12 +430,13 @@
                                 <td class="p-3 px-5">{{ $info->start_date }}</td>
                                 <td class="p-3 px-5">
 
-                                    
+
                                     <button type="button"
-                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Pay
-                                        Now</button>
+                                        class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                        <a href="{{ url('/coursedetails/'.$info->course_id) }}">Pay Now</a></button>
                                     <button type="button"
-                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Cancel</button>
+                                        class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                        <a href="{{ url('/deletecourse/'.$info->course_id) }}">Delete</a></button>
                                 </td>
                             </tr>
                             @endforeach

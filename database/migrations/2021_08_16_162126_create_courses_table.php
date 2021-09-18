@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->string("award");
             $table->string("format");
             $table->string("status");
+            $table->integer("cost");
             $table->string("start_date");
             $table->timestamps();
         });

@@ -37,6 +37,8 @@ Route::group(['middleware' => 'user'], function () {
 
     
     Route::get('/applied/{id}', [UserController::class, 'applied']);
+    Route::get('/coursedetails/{id}', [UserController::class, 'details']);
+    Route::get('/deletecourse/{id}', [UserController::class, 'deletecourse']);
     Route::get('/profile', [Profilecontroller::class, 'profile']);
     Route::get('/editprofile', [Profilecontroller::class, 'editview']);
     Route::post('/editprofile', [Profilecontroller::class, 'editprofile']);

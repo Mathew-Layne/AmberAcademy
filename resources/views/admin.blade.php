@@ -253,7 +253,13 @@
               required="Start Date">
           </div>
 
-          <div class="mt-2">
+          <div class="inline-block mt-2 w-1/2 pr-1">
+            <label class="text-sm text-gray-600" for="cus_email">Cost</label>
+            <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" name="cost" type="text" required="Cost"
+              placeholder="Enter Course Cost">
+          </div>
+          
+          <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
             <label class="block text-sm text-gray-600" for="format">Format</label>
              <select name="format" class="w-full px-2 py-3 text-gray-700 bg-gray-200 rounded">
               <option value="">Select Format</option>
@@ -262,6 +268,7 @@
               <option value="3 Months">3 Months</option>              
             </select>
           </div>
+          
           <div class="mt-4">
             <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Add
               Course</button>

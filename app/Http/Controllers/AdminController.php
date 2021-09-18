@@ -28,6 +28,7 @@ class AdminController extends Controller
             'award' => $req->award,
             'format' => $req->format,
             'status' => $req->status,
+            'cost' => $req->cost,
             'start_date' => $req->start_date,  
             'created_at' => now(),
 

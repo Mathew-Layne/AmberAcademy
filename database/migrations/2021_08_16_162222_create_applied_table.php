@@ -18,6 +18,7 @@ class CreateAppliedTable extends Migration
             $table->integer('course_id');
             $table->integer('user_id');
             $table->string('app_status')->default('Pending');
+            $table->string('payment_status')->default('Unpaid');
             $table->timestamps();                                 
         });
     }

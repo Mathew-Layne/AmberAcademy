@@ -148,4 +148,27 @@ class UserController extends Controller
     {
         return view('media');
     }
+
+    function details($id){
+
+        $course_detail = DB::table('applied')
+        ->join('courses', 'applied.course_id', 'courses.id')
+        ->where('applied.course_id', $id)
+        ->get();
+
+        return view('course_details', ['course_detail' => $course_detail[0]]);
+    }
+
+    function deletecourse($id)
+    {
+        DB::table('applied')
+        ->where('course_id', $id)
+        ->delete();
+        echo "
+                <script>
+                    alert('Course deleted.');   
+                    window.location.href ='/status';        
+                </script>
+            ";  
+    }
 }
