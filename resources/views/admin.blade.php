@@ -349,9 +349,9 @@
                 
                 <td class="p-3 px-5 flex justify-end">
                   <button type="button"
-                    class="mr-3 text-sm bg-green-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"><a href="{{ url('/approve/'.$info->user_id) }}">Approve</a></button>
+                    class="mr-3 text-sm bg-green-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"><a href="{{ url('/approve/'.$info->course_id. '/' . $info->user_id) }}">Approve</a></button>
                   <button type="button"
-                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"><a href="{{ url('/deny/'.$info->user_id) }}">Deny</a></button>
+                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"><a href="{{ url('/deny/'.$info->course_id. '/' . $info->user_id) }}">Deny</a></button>
                 </td>
               </tr>              
               @endforeach

@@ -67,7 +67,7 @@
                         <div class="pd w-8 m-1">
                             <img class="rounded-3xl h-full" src="{{ session()->get('pro_pic') }}" alt="Prifile Pic">
                         </div>
-                        <div class="name m-1">
+                        <div class="name m-1 font-extrabold">
                             <a href="{{ url('/profile') }}">{{ session()->get('username') }}</a>
                     
                         </div>
@@ -79,7 +79,7 @@
                         <div class="pd w-8 m-1">
                             <img class="rounded-3xl h-full" src="{{ session()->get('pro_pic') }}" alt="Prifile Pic">
                         </div>
-                        <div class="name m-1">
+                        <div class="name m-1 font-extrabold">
                             <a href="{{ url('/admin') }}">{{ session()->get('username') }}</a>
                     
                         </div>
@@ -88,7 +88,6 @@
                     @else
                     
                     <div class="nav_btn">
-                        <button class="mx-2 font-semibold" type="submit"> <a href="{{ url('register') }}">Register</a></button>
                         <button class="font-semibold py-1 px-6 bg-blue-500 rounded-full text-white" type="submit"><a
                                 href="{{ url('login') }}">Login</a></button>
                     </div>

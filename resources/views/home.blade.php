@@ -100,8 +100,7 @@
         </nav>
         @if(session()->missing('user_id'))
         
-        <div class="nav_btn">
-            <button class="mx-2 font-semibold" type="submit"> <a href="{{ url('register') }}">Register</a></button>
+        <div class="nav_btn">            
             <button class="font-semibold py-1 px-6 bg-blue-500 rounded-full text-white" type="submit"><a
                     href="{{ url('login') }}">Login</a></button>
         </div>

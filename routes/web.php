@@ -43,6 +43,7 @@ Route::group(['middleware' => 'user'], function () {
     Route::get('/qual', [Profilecontroller::class, 'qual']);
     Route::get('/addqual', [Profilecontroller::class, 'viewqual']);
     Route::post('/addqual', [Profilecontroller::class, 'addqual']);
+    Route::get('/status', [Profilecontroller::class, 'getstatus']);
 });
 
 
@@ -57,8 +58,8 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/users', [AdminController::class, 'users']);
     Route::get('/applications', [AdminController::class, 'applications']);
     Route::get('/payments', [AdminController::class, 'payments']);
-    Route::get('/approve/{id}', [AdminController::class, 'approve']);
-    Route::get('/deny/{id}', [AdminController::class, 'deny']);
+    Route::get('/approve/{cid}/{uid}', [AdminController::class, 'approve']);
+    Route::get('/deny/{cid}/{uid}', [AdminController::class, 'deny']);
 
 });
 

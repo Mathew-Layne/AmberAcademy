@@ -48,30 +48,45 @@ class AdminController extends Controller
         session()->put('check', 'applications');
         $data = DB::table('applied')
         ->join('user', 'applied.user_id', 'user.id')
-        ->join('courses', 'applied.course_id', 'courses.id')        
+        ->join('courses', 'applied.course_id', 'courses.id')
+        ->where('applied.app_status', 'Pending')        
         ->get();
 
         return view('admin',['data' => $data]);
     }
 
-    function approve($id)
+    function approve($cid, $uid)
     {
         DB::table('applied')
-        ->where('user_id', $id)
+        ->where('user_id', $uid)
+        ->where('course_id', $cid)
         ->update([
-            'status' => 'Approved'
+            'app_status' => 'Approved'
         ]);
-        return redirect('/applicants');
+
+        echo "
+                <script>
+                    alert('Applicant has been Approved.');   
+                    window.location.href ='/applications';        
+                </script>
+            ";         
     }
 
-    function deny($id)
+    function deny($cid, $uid)
     {
        DB::table('applied')
-       ->where('user_id', $id)
+       ->where('user_id', $uid)
+        ->where('course_id', $cid)        
        ->update([
-           'status' => 'Denied'
+           'app_status' => 'Denied'
        ]);
-        return redirect('/applicants');
+
+        echo "
+                <script>
+                    alert('Applicant has been Denied.');   
+                    window.location.href ='/applications';        
+                </script>
+            ";   
     }
 
     function payments()

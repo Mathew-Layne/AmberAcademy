@@ -17,7 +17,7 @@ class CreateAppliedTable extends Migration
             $table->id();
             $table->integer('course_id');
             $table->integer('user_id');
-            $table->string('status')->default('Pending');
+            $table->string('app_status')->default('Pending');
             $table->timestamps();                                 
         });
     }

@@ -103,4 +103,17 @@ class ProfileController extends Controller
 
         return redirect('/qual');
     }
+
+    function getstatus(){
+        session()->put('profile', 'app_status');
+        $user_id = session()->get('user_id');
+
+        $status = DB::table('applied')
+        ->join('courses', 'applied.course_id', 'courses.id')
+        ->where('applied.user_id', $user_id)
+        ->where('applied.app_status', 'Approved')
+        ->get();
+
+        return view('profile', ['status' => $status]);
+    }
 }
