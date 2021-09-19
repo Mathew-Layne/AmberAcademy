@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
     <title>Course Details</title>
 </head>
-<x-header/>
 <body>
+    <x-header />
     <section class="text-gray-600 body-font overflow-hidden">
         <div class="container px-5 py-24 mx-auto">
             <div class="lg:w-4/5 mx-auto flex justify-center">

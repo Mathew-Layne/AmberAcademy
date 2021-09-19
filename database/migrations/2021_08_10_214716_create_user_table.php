@@ -21,7 +21,7 @@ class CreateUserTable extends Migration
             $table->string("dob");
             $table->string("email");
             $table->string("password");
-            $table->integer("phone_number");
+            $table->bigInteger("phone_number")->nullable();
             $table->string("address");
             $table->string("city");
             $table->string("parish");

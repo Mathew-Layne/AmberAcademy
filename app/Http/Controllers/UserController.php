@@ -150,7 +150,6 @@ class UserController extends Controller
     }
 
     function details($id){
-
         $course_detail = DB::table('applied')
         ->join('courses', 'applied.course_id', 'courses.id')
         ->where('applied.course_id', $id)

@@ -30,7 +30,7 @@
         @if(session()->get('user_type') == "User")            
             <div class="username flex">
                 <div class="pd w-8 m-1">
-                    <img class="rounded-3xl h-full" src="{{ session()->get('pro_pic') }}" alt="Prifile Pic">
+                    <img class="rounded-3xl h-full" src="{{ url(session()->get('pro_pic')) }}" alt="Prifile Pic">
                 </div>
                 <div class="name m-1">
                     <a href="{{ url('/profile') }}">{{ session()->get('username') }}</a>
@@ -46,7 +46,6 @@
                 </div>
                 <div class="name m-1">
                     <a href="{{ url('/admin') }}">{{ session()->get('username') }}</a>
-            
                 </div>
             </div>
             
